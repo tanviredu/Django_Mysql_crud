@@ -5,6 +5,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns,static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('first_app/',include('TEST.urls',namespace='TEST'))
 ]
 urlpatterns+=staticfiles_urlpatterns()
 urlpatterns+=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

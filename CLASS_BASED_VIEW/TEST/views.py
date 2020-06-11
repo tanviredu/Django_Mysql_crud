@@ -3,16 +3,20 @@ from .models import Album,Musician
 
 
 def index(request):
-    pass
+    context = {}
+    return render(request,'first_app/index.html',context)
 
 def album_list(request):
-    pass 
+    context={}
+    return render(request,'first_app/album_list.html',context)
 
 
 def musician_form(request):
-    pass
+    context = {}
+    return render(request,'first_app/musician_form.html',context)
 
 
 def album_form(request):
-    pass
+    context = {}
+    return render(request,'first_app/album_form.html',context)
 
