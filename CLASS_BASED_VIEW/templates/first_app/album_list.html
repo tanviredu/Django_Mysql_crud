@@ -11,6 +11,7 @@
     <p class="card-text"><b>Instrument : {{artist.instrument}}</b></p>
     <hr>
     <p class="card-text"><b>Artist Rating : {{artist_avg_rating.num_star__avg}}</b></p>
+    <a href="{% url 'TEST:edit_artist' artist_id=artist.id %}" class='btn btn-info btn-sm'> Edit </a>
     <hr>
     {% if albums_list %}
     <h1 class='display-4'> Album List </h1>
@@ -21,6 +22,8 @@
       <th scope="col">Album Name</th>
       <th scope="col">Release Date</th>
       <th scope="col">Rating</th>
+      <th scope="col">Update</th>
+      
       
     </tr>
   </thead>
@@ -32,12 +35,13 @@
       <td>{{album.name}}</td>
       <td>{{album.release_date}}</td>
       <td>{{album.num_star}}</td>
+      <td><a href="{% url 'TEST:edit_album' album_id=album.id %}" class='btn btn-danger' >Update</a></td>
     </tr>
   </tbody>
             {% endfor %}
             {% endif %}
       </table>
-    <a href="{% url 'TEST:index' %}" class="btn btn-danger btn-lg">home</a>
+    <a href="{% url 'TEST:index' %}" class="btn btn-danger btn-lg">Go Back</a>
     
   </div>
 </div>

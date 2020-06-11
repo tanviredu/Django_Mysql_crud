@@ -47,3 +47,31 @@ def album_form(request):
     
     return render(request,'first_app/album_form.html',{"form":form})
 
+
+def edit_artist(request,artist_id):
+    artist_info = Musician.objects.get(pk=artist_id)
+    form = MusicianForm(instance=artist_info)
+    if request.method == "POST":
+        ## this is the most important part
+        ## for edit you need to provide the 
+        ## instance too that you want to edit
+        form = MusicianForm(request.POST,instance=artist_info)
+        if form.is_valid():
+            form.save()
+            ## this is new way of redirection
+            return album_list(request,artist_info.id) 
+    
+    return render(request,'first_app/edit_artist.html',{'form':form})
+
+
+def edit_album(request,album_id):
+    album_info = Album.objects.get(pk=album_id)
+    form = AlbumForm(instance=album_info)
+    if request.method == "POST":
+        form = AlbumForm(request.POST,instance=album_info)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('TEST:index'))
+    return render(request,'first_app/edit_album.html',{'form':form})
+
+
