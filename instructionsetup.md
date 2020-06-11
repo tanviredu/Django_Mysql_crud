@@ -20,3 +20,23 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+
+
+## imortant sql 
+sql: SELECT * FROM Musician;
+django : Musician.objects.all()
+
+
+
+sql: SELECT * FROM Musician WHERE id=1
+django : Musician.objects.get(pk=1)
+
+
+
+sql: SELECT * FROM Musician WHERE instrument='guiter'
+django : Musician.objects.filter(instrument='guiter')
+
+[join query]
+sql: SELECT * FROM Album WHERE artist_id=1 
+django : Musician.objects.filter(artist=1)

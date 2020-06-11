@@ -2,30 +2,47 @@
 {% block title %} Home {% endblock title %}
 {% block content %}
 <center>
-<h1 class='display-4'> Musician List </h1>
-</center>
-<table class="table">
-  <thead class="thead-dark">
+<h1 class='display-4'> Artist Info </h1>
+
+<div class="card" style="width: 60rem;">
+  <div class="card-body">
+    <h5 class="card-title">Artist Info</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Name : {{artist.first_name}} {{artist.last_name}}</h6>
+    <p class="card-text"><b>Instrument : {{artist.instrument}}</b></p>
+    <hr>
+    <p class="card-text"><b>Artist Rating : {{artist_avg_rating.num_star__avg}}</b></p>
+    <hr>
+    {% if albums_list %}
+    <h1 class='display-4'> Album List </h1>
+    <table class="table">
+    <thead class="thead-dark">
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Instrument</th>
+      
+      <th scope="col">Album Name</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Rating</th>
+      
     </tr>
   </thead>
-    {% if musician_list %}
-        {% for musician in musician_list %}
-  <tbody>
+            
+        {% for album in albums_list %}
+            <tbody>
     <tr>
-      <th scope="row">{{musician.id}}</th>
-      <td>{{musician.first_name}}</td>
-      <td>{{musician.last_name}}</td>
-      <td>{{musician.instrument}}</td>
+      
+      <td>{{album.name}}</td>
+      <td>{{album.release_date}}</td>
+      <td>{{album.num_star}}</td>
     </tr>
-  </tbody></li>
-        {% endfor %}
-    {% endif %}
-</table>
+  </tbody>
+            {% endfor %}
+            {% endif %}
+      </table>
+    <a href="{% url 'TEST:index' %}" class="btn btn-danger btn-lg">home</a>
+    
+  </div>
+</div>
+
+
 
 
 {% endblock %}

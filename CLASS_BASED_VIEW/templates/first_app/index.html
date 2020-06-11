@@ -12,6 +12,7 @@
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Instrument</th>
+      <th scope="col">Album</th>
     </tr>
   </thead>
     {% if musician_list %}
@@ -22,8 +23,9 @@
       <td>{{musician.first_name}}</td>
       <td>{{musician.last_name}}</td>
       <td>{{musician.instrument}}</td>
+      <td><a class='btn btn-success btn-sm' href="{% url 'TEST:album_list' artist_id=musician.id %}">Go to Album</td>
     </tr>
-  </tbody></li>
+  </tbody>
         {% endfor %}
     {% endif %}
 </table>
