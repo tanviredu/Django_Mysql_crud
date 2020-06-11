@@ -23,6 +23,7 @@
       <th scope="col">Release Date</th>
       <th scope="col">Rating</th>
       <th scope="col">Update</th>
+      <th scope="col">Delete</th>
       
       
     </tr>
@@ -36,6 +37,7 @@
       <td>{{album.release_date}}</td>
       <td>{{album.num_star}}</td>
       <td><a href="{% url 'TEST:edit_album' album_id=album.id %}" class='btn btn-danger' >Update</a></td>
+      <td><a href="{% url 'TEST:delete_album' album_id=album.id %}" class='btn btn-danger' onclick="return confirm ('Are you sure ?? ')" >Delete</a></td>
     </tr>
   </tbody>
             {% endfor %}

@@ -75,3 +75,9 @@ def edit_album(request,album_id):
     return render(request,'first_app/edit_album.html',{'form':form})
 
 
+def delete_album(request,album_id):
+    album = Album.objects.get(pk=album_id).delete()
+    return HttpResponseRedirect(reverse('TEST:index'))
+    
+
+
