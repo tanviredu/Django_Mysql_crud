@@ -1,7 +1,35 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock title %}
 {% block content %}
-<h1> This is index page </h1>
 
+<center>
+<h1 class='display-4'> Musician List </h1>
+</center>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Instrument</th>
+    </tr>
+  </thead>
+    {% if musician_list %}
+        {% for musician in musician_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{musician.id}}</th>
+      <td>{{musician.first_name}}</td>
+      <td>{{musician.last_name}}</td>
+      <td>{{musician.instrument}}</td>
+    </tr>
+  </tbody></li>
+        {% endfor %}
+    {% endif %}
+</table>
 
 {% endblock %}
+
+
+
+  

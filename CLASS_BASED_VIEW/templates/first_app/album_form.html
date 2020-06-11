@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
-{% block title %} Home {% endblock title %}
+{% load crispy_forms_tags %}
+{% block title %} Album form {% endblock title %}
 {% block content %}
-<h1> This is Album Form </h1>
 
+<center>
+    <h2> This is Album form </h2>
+    <div class="form-group">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form| crispy }}
+        <input class='btn btn-info' type='submit' value='Add'>
+    </div>
+</center>
 
 {% endblock %}
